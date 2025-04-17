@@ -1,13 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach((item, index) => {
+    faqItems.forEach((item) => {
         const question = item.querySelector('.faq-question');
-        
-        // Mostra as duas últimas perguntas automaticamente
-        if (index >= faqItems.length - 2) {
-            item.classList.add('active');
-        }
         
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
