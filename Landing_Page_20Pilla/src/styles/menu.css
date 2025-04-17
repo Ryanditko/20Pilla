@@ -1,0 +1,153 @@
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0;
+}
+
+#menu .section-subtitle {
+    text-align: center;
+    color: var(--color-neutral-0);
+}
+
+#dishes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 25%;
+    padding: 2rem;
+    background-color: var(--color-primary-2);
+    border-radius: 20px;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dish:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dish-heart {
+    position: absolute;
+    background-color: var(--color-neutral-0);
+    display: flex;
+    place-items: center;
+    font-size: 1.563rem;
+    color: var(--color-primary-6);
+    padding: 0.4rem;
+    border-radius: 0 0 0 20px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dish-heart:hover {
+    background-color: var(--color-primary-6);
+    color: var(--color-neutral-0);
+}
+
+.dish-image {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+.dish-title {
+    font-size: 1.563rem;
+    color: var(--color-neutral-0);
+}
+
+.dish-description {
+    color: var(--color-neutral-1);
+    text-align: center;
+}
+
+.dish-rate {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary-6);
+}
+
+.dish-rate span {
+    color: var(--color-neutral-1);
+    font-size: 0.85rem;
+}
+
+.dish-price {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.dish-price h4 {
+    color: var(--color-neutral-0);
+    font-size: 1.25rem;
+}
+
+/* Responsividade para o menu */
+@media (max-width: 1200px) {
+    .dish {
+        width: 45%;
+    }
+}
+
+@media (max-width: 992px) {
+    .dish {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dish {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    #dishes {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dish-price h4 {
+        font-size: 1rem;
+    }
+    
+    .dish-title {
+        font-size: 1.2rem;
+    }
+    
+    .dish-description {
+        font-size: 0.8rem;
+    }
+    
+    .dish {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .dish-price {
+        gap: 1rem;
+    }
+    
+    .dish-price h4 {
+        font-size: 0.9rem;
+    }
+} 

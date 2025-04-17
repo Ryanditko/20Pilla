@@ -1,0 +1,310 @@
+/* Responsiva via media query */
+@media (max-width: 1200px) {
+    nav ul {
+        gap: 1rem;
+    }
+  
+    nav a {
+        font-size: 0.95rem;
+    }
+  
+    section {
+        margin: 2rem 0;
+        padding: 2rem;
+    }
+    
+    #cta {
+        width: 60%;
+    }
+    
+    #banner {
+        width: 40%;
+    }
+    
+    .dish {
+        width: 45%;
+    }
+    
+    .more-reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #testimonials {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    #testimonials_content {
+        width: 60%;
+    }
+}
+
+/* Tablets e dispositivos médios */
+@media (max-width: 992px) {
+    nav ul {
+        gap: 0.8rem;
+    }
+    
+    #cta {
+        width: 70%;
+    }
+    
+    #banner {
+        width: 30%;
+    }
+    
+    .dish {
+        width: 45%;
+    }
+    
+    .section-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .more-reviews-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 3rem auto 0;
+    }
+
+    #testimonials {
+        gap: 2rem;
+    }
+
+    #testimonials_content {
+        width: 65%;
+    }
+}
+
+/* Tablets pequenos e celulares grandes */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+  
+    nav a {
+        justify-content: center;
+        font-size: 1rem;
+    }
+  
+    section {
+        padding: 28px 5%;
+    }
+    
+    #cta {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #banner {
+        width: 80%;
+        margin: 2rem auto 0;
+    }
+    
+    #cta_buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .social-media-buttons {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .dish {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    #testimonials {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    #testimonials_content {
+        width: 100%;
+    }
+    
+    #testimonial_chef {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    
+    .feedback {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .section-title, .section-subtitle {
+        text-align: center;
+        width: 100%;
+    }
+
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .more-reviews {
+        padding: 1.5rem;
+    }
+    
+    .review-card {
+        padding: 1.5rem;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .review-avatar {
+        margin: 0 auto 1rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 576px) {
+    #banner {
+        width: 100%;
+        margin: 2rem auto 0;
+    }
+    
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+    }
+    
+    #testimonial_chef {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .dish-price h4 {
+        font-size: 1rem;
+    }
+    
+    .dish-title {
+        font-size: 1.2rem;
+    }
+    
+    .dish-description {
+        font-size: 0.8rem;
+    }
+    
+    .more-reviews-title {
+        font-size: 1.8rem;
+    }
+    
+    .review-card {
+        padding: 1.2rem;
+    }
+    
+    .review-name {
+        font-size: 1.1rem;
+    }
+    
+    .review-text {
+        font-size: 0.9rem;
+    }
+    
+    .review-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    #testimonials {
+        padding: 2rem 1rem;
+    }
+
+    .feedback {
+        padding: 1.5rem;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 400px) {
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .btn-default {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .social-media-buttons a {
+        width: 40px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    #testimonial_chef {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .more-reviews {
+        padding: 1rem;
+    }
+    
+    .review-card {
+        padding: 1rem;
+    }
+    
+    .review-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .review-name {
+        font-size: 1rem;
+    }
+    
+    .review-date {
+        font-size: 0.8rem;
+    }
+    
+    .review-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .review-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    #testimonials {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .feedback {
+        padding: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+}

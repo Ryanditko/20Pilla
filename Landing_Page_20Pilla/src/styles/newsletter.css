@@ -1,0 +1,111 @@
+.newsletter-section {
+    background: var(--neutral-100);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--neutral-200);
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-title {
+    color: var(--primary-600);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-description {
+    color: var(--neutral-600);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+#newsletter-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#newsletter-form input[type="email"] {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--neutral-300);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--primary-500);
+}
+
+#newsletter-form button {
+    background: var(--primary-600);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#newsletter-form button:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(19, 0, 44, 0.2);
+}
+
+#newsletter-form button:active {
+    transform: translateY(0);
+}
+
+#newsletter-form button i {
+    font-size: 1.1rem;
+}
+
+#newsletter-form button:disabled {
+    background: var(--neutral-400);
+    cursor: not-allowed;
+}
+
+.privacy-notice {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--neutral-500);
+}
+
+.privacy-notice a {
+    color: var(--primary-600);
+    text-decoration: none;
+}
+
+.privacy-notice a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .newsletter-section {
+        padding: 3rem 1rem;
+    }
+    
+    #newsletter-form {
+        flex-direction: column;
+    }
+    
+    #newsletter-form input[type="email"] {
+        width: 100%;
+    }
+    
+    #newsletter-form button {
+        width: 100%;
+    }
+} 
