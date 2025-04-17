@@ -12,22 +12,22 @@
 /* Variáveis de cores e temas */
 :root {
     /* Cores primárias */
-    --color-primary-1: #ffffff;
-    --color-primary-2: #f5f5f5;
-    --color-primary-3: #e0e0e0;
-    --color-primary-4: #8a2be2; /* Roxo da marca */
-    --color-primary-5: #6a1db9;
-    --color-primary-6: #4a148c;
+    --color-primary-1: #121212;
+    --color-primary-2: #1a1a1a;
+    --color-primary-3: #2d2d2d;
+    --color-primary-4: #9d4edd;
+    --color-primary-5: #7b2cbf;
+    --color-primary-6: #5a189a;
     
     /* Cores neutras */
-    --color-neutral-0: #000000;
-    --color-neutral-1: #333333;
-    --color-neutral-2: #666666;
-    --color-neutral-3: #999999;
-    --color-neutral-4: #cccccc;
-    --color-neutral-5: #e0e0e0;
-    --color-neutral-6: #f5f5f5;
-    --color-neutral-7: #ffffff;
+    --color-neutral-0: #ffffff;
+    --color-neutral-1: #f5f5f5;
+    --color-neutral-2: #e0e0e0;
+    --color-neutral-3: #cccccc;
+    --color-neutral-4: #999999;
+    --color-neutral-5: #666666;
+    --color-neutral-6: #333333;
+    --color-neutral-7: #000000;
     
     /* Velocidades de transição */
     --transition-speed-fast: 0.2s;
@@ -45,18 +45,18 @@
     --shadow-md: 0px 0px 12px 4px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0px 0px 20px 8px rgba(0, 0, 0, 0.2);
     /* Variáveis de tema */
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --primary-color: #ff6b6b;
-    --secondary-color: #4ecdc4;
-    --accent-color: #ffd93d;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --card-bg: #ffffff;
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --border-color: #e0e0e0;
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --primary-color: #ff8585;
+    --secondary-color: #6ee7e0;
+    --accent-color: #ffe566;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --card-bg: #2a2a2a;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --border-color: #444444;
 }
 
-/* Tema escuro */
+/* Tema escuro - mantido como referência */
 /*
 [data-theme="dark"] {
     --color-primary-1: #121212;
