@@ -1,3 +1,4 @@
+/*
 const toggle = document.getElementById('toggle');
 const body = document.body;
 const root = document.documentElement;
@@ -136,3 +137,4 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
         applyTheme('system');
     }
 });
+*/

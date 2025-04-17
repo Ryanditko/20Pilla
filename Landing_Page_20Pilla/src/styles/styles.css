@@ -9,16 +9,34 @@
 @import url('media.css');
 @import url('mediaquery.css');
 
+/* Variáveis de cores e temas */
 :root {
-    --color-primary-1: #000000;
-    --color-primary-2: #13002c;
-    --color-primary-3: #cf77f8;
-    --color-primary-4: #a065ff;
-    --color-primary-5: #aa7cff;
-    --color-primary-6: #6f00ff;
-
-    --color-neutral-0: #ffffff;
-    --color-neutral-1: #f5f5f5;
+    /* Cores primárias */
+    --color-primary-1: #ffffff;
+    --color-primary-2: #f5f5f5;
+    --color-primary-3: #e0e0e0;
+    --color-primary-4: #8a2be2; /* Roxo da marca */
+    --color-primary-5: #6a1db9;
+    --color-primary-6: #4a148c;
+    
+    /* Cores neutras */
+    --color-neutral-0: #000000;
+    --color-neutral-1: #333333;
+    --color-neutral-2: #666666;
+    --color-neutral-3: #999999;
+    --color-neutral-4: #cccccc;
+    --color-neutral-5: #e0e0e0;
+    --color-neutral-6: #f5f5f5;
+    --color-neutral-7: #ffffff;
+    
+    /* Velocidades de transição */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-normal: 0.3s;
+    --transition-speed-slow: 0.5s;
+    
+    /* Efeitos de hover */
+    --hover-scale: 1.05;
+    --hover-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     
     /* Novas variáveis para animações */
     --transition-speed: 0.3s;
@@ -38,17 +56,73 @@
     --border-color: #e0e0e0;
 }
 
+/* Tema escuro */
+/*
 [data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --text-color: #ffffff;
-    --primary-color: #ff8585;
-    --secondary-color: #6ee7e0;
-    --accent-color: #ffe566;
-    --shadow-color: rgba(255, 255, 255, 0.1);
-    --card-bg: #2a2a2a;
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --border-color: #444444;
+    --color-primary-1: #121212;
+    --color-primary-2: #1a1a1a;
+    --color-primary-3: #2d2d2d;
+    --color-primary-4: #9d4edd;
+    --color-primary-5: #7b2cbf;
+    --color-primary-6: #5a189a;
+    
+    --color-neutral-0: #ffffff;
+    --color-neutral-1: #f5f5f5;
+    --color-neutral-2: #e0e0e0;
+    --color-neutral-3: #cccccc;
+    --color-neutral-4: #999999;
+    --color-neutral-5: #666666;
+    --color-neutral-6: #333333;
+    --color-neutral-7: #000000;
 }
+*/
+
+/* Estilos do botão de tema */
+/*
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--color-primary-4);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    z-index: 1000;
+    transition: all var(--transition-speed-normal) ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+    transform: scale(var(--hover-scale));
+    box-shadow: var(--hover-shadow);
+}
+
+.theme-icon {
+    font-size: 16px;
+    transition: transform var(--transition-speed-normal) ease;
+}
+
+.theme-toggle.dark-mode .theme-icon {
+    transform: rotate(360deg);
+}
+
+.theme-toggle.light-mode .theme-icon {
+    transform: rotate(180deg);
+}
+
+.theme-transition * {
+    transition: background-color var(--transition-speed-normal) ease,
+                color var(--transition-speed-normal) ease,
+                border-color var(--transition-speed-normal) ease,
+                box-shadow var(--transition-speed-normal) ease;
+}
+*/
 
 /* Classe para transição suave entre temas */
 .theme-transition,
