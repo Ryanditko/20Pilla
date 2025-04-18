@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Enviar email usando EmailJS
             emailjs.init("HHgXYvITsuOl8GYaL"); // Substitua pelo seu User ID do EmailJS
             // Service ID + Template ID da integração do EmailJS
-            emailjs.send("service_2tbacnk", "template_cp6yyee", {
+            emailjs.send("service_2tbacnk", "template_egzp13d", {
                 to_email: email,
                 from_name: "20Pilla",
                 name: userName,
