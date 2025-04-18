@@ -7,31 +7,38 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const emailInput = this.querySelector('input[type="email"]');
             const email = emailInput.value;
-            
+            const nameInput = this.querySelector('input[name="name"]');  // Campo de nome
+            const userName = nameInput ? nameInput.value : '';  // Obter nome, caso exista
+
             // Validação básica de email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Por favor, insira um e-mail válido.');
                 return;
             }
-            
+
             // Mostrar mensagem de carregamento
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
             submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
             submitButton.disabled = true;
-            
+
             // Enviar email usando EmailJS
-            emailjs.init("SEU_USER_ID"); // Substitua pelo seu User ID do EmailJS
-            
-            emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", {
+            emailjs.init("uippFtRqRi7qgiXbpNTI1"); // Substitua pelo seu User ID do EmailJS
+
+            // Service ID + Template ID da integração do EmailJS
+            emailjs.send("service_2tbacnk", "template_cp6yyee", {
                 to_email: email,
                 from_name: "20Pilla",
-                message: "Obrigado por se cadastrar em nossa newsletter!"
+                name: userName,  // Enviar nome do usuário
+                message: "Obrigado por se cadastrar em nossa newsletter!"  // Mensagem padrão
             })
             .then(function() {
-                alert('Obrigado por se inscrever! Em breve você receberá nossas novidades.');
-                emailInput.value = '';
+                alert('Obrigado por se inscrever! Em breve você receberá todas as nossas novidades.');
+                emailInput.value = '';  // Limpar o campo de e-mail
+                if (nameInput) {
+                    nameInput.value = '';  // Limpar o campo de nome, caso exista
+                }
             })
             .catch(function(error) {
                 console.error('Erro ao enviar email:', error);
@@ -44,4 +51,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-}); 
+});
