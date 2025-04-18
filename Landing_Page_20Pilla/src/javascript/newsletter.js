@@ -32,16 +32,19 @@ document.addEventListener('DOMContentLoaded', function() {
             emailjs.send("service_2tbacnk", "template_cp6yyee", {
                 to_email: email,
                 from_name: "20Pilla",
+                name: userName,
                 message: "Obrigado por se cadastrar em nossa newsletter!"
             })
+            
             .then(function() {
                 alert('Obrigado por se inscrever! Em breve você receberá todas as nossas novidades.');
                 emailInput.value = '';
             })
             .catch(function(error) {
-                console.error('Erro ao enviar email:', error);
+                console.error('Erro ao enviar email:', error);  // Exibe o erro no console
                 alert('Ocorreu um erro ao cadastrar seu e-mail. Por favor, tente novamente mais tarde.');
             })
+            
             .finally(function() {
                 // Restaurar o botão
                 submitButton.innerHTML = originalText;
