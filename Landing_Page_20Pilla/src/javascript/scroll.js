@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       homeSection.classList.add("show");
     }, 10);
-  
+
     navLinks.forEach((link) => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
