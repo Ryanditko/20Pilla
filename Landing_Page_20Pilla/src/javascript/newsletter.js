@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = emailInput.value;
             const nameInput = this.querySelector('input[name="name"]'); // Campo de nome
             const userName = nameInput ? nameInput.value : '';  // Obter nome 
-            console.log('Email:', email);
-            console.log('Nome:', userName);
-
             
             // Validação básica de email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.disabled = true;
             
             // Enviar email usando EmailJS
-            emailjs.init("uippFtRqRi7qgiXbpNTI1"); // Substitua pelo seu User ID do EmailJS
+            emailjs.init("HHgXYvITsuOl8GYaL"); // Substitua pelo seu User ID do EmailJS
             // Service ID + Template ID da integração do EmailJS
             emailjs.send("service_2tbacnk", "template_cp6yyee", {
                 to_email: email,
