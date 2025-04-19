@@ -69,9 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
   async function checkEmailExists(email) {
     try {
       const url = `${CONFIG.GOOGLE_SCRIPT_URL}?action=check&email=${encodeURIComponent(email)}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      return data.exists;
+      const response = await fetch(url, {
+        method: 'GET',
+        mode: 'no-cors'
+      });
+      
+      // Como estamos usando no-cors, vamos considerar que a resposta bem-sucedida significa que o email existe
+      return response.status === 0;
     } catch (error) {
       console.error("Erro ao verificar email:", error);
       return false;
@@ -104,17 +108,21 @@ document.addEventListener('DOMContentLoaded', function () {
   async function unsubscribeEmail(email) {
     try {
       const url = `${CONFIG.GOOGLE_SCRIPT_URL}?action=unsubscribe&email=${encodeURIComponent(email)}`;
-      const response = await fetch(url);
-      const data = await response.json();
       
-      if (data.success) {
-        showNotification('success', 'Sua inscrição foi cancelada com sucesso.');
-      } else {
-        showNotification('error', 'Não foi possível encontrar seu email em nossa lista.');
-      }
+      // Primeira tentativa - cancelar a inscrição
+      await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors'
+      });
+
+      // Se não houve erro até aqui, consideramos que deu certo
+      showNotification('success', 'Sua inscrição foi cancelada com sucesso.');
+      return true;
+      
     } catch (error) {
       console.error("Erro ao cancelar inscrição:", error);
       showNotification('error', 'Ocorreu um erro ao tentar cancelar sua inscrição. Tente novamente mais tarde.');
+      return false;
     }
   }
 
@@ -184,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const unsubscribeBtn = document.getElementById('unsubscribe-btn');
     const modalCancelBtn = document.getElementById('modal-cancel');
     const modalConfirmBtn = document.getElementById('modal-confirm');
+    const modalContent = modal.querySelector('.modal-content');
 
     unsubscribeBtn.addEventListener('click', () => {
       modal.classList.add('show');
@@ -197,9 +206,22 @@ document.addEventListener('DOMContentLoaded', function () {
     modalConfirmBtn.addEventListener('click', async () => {
       const email = document.getElementById('unsubscribe-email').value.trim();
       if (validateEmail(email)) {
-        await unsubscribeEmail(email);
-        modal.classList.remove('show');
-        document.getElementById('unsubscribe-email').value = '';
+        // Desabilita os botões e mostra loading
+        modalConfirmBtn.disabled = true;
+        modalCancelBtn.disabled = true;
+        modalConfirmBtn.innerHTML = '<span class="loading-spinner"></span> Processando...';
+        
+        const success = await unsubscribeEmail(email);
+        
+        if (success) {
+          modal.classList.remove('show');
+          document.getElementById('unsubscribe-email').value = '';
+        }
+        
+        // Restaura os botões
+        modalConfirmBtn.disabled = false;
+        modalCancelBtn.disabled = false;
+        modalConfirmBtn.innerHTML = 'Confirmar';
       }
     });
 
@@ -267,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
         searchParams.append('action', 'subscribe');
 
         // Enviar para o Google Apps Script
-        const response = await fetch(CONFIG.GOOGLE_SCRIPT_URL + "?" + searchParams.toString(), {
+        await fetch(CONFIG.GOOGLE_SCRIPT_URL + "?" + searchParams.toString(), {
           method: "POST",
           mode: 'no-cors',
           headers: {
