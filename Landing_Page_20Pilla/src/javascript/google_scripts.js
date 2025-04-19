@@ -1,26 +1,25 @@
 document.getElementById("newsletter-form").addEventListener("submit", function(event) {
-    event.preventDefault();  // Previne o envio padrão do formulário
-
-    const email = document.getElementById("email").value;  // Certifique-se de pegar o valor do campo com id 'email'
-    const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec"; // URL
-
+    event.preventDefault();
+    
+    const email = document.getElementById("email").value;
+    const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec";  // Substitua pela URL da Web App
+  
     fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",  
-        },
-        body: `email=${encodeURIComponent(email)}`  //   chave 'email' 
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `email=${encodeURIComponent(email)}`
     })
     .then(() => {
-        // Se o cadastro for bem-sucedido
-        alert("🎉 Cadastro realizado com sucesso!");
-        document.getElementById("newsletter-form").reset();  // Reseta o formulário
-    }).catch(() => {
-        // Se houver algum erro
-        alert("❌ Ocorreu um erro. Tente novamente.");
+      alert("🎉 Cadastro realizado com sucesso!");
+      document.getElementById("newsletter-form").reset();
+    })
+    .catch(() => {
+      alert("❌ Ocorreu um erro. Tente novamente.");
     });
-});
-
+  });
+  
 
 //function doPost(e) {
     //var sheet = SpreadsheetApp.openById("1AffemlcmQDTGBuqNPqGYhJNJJwzsWAXsRovBOXFX4P4").getSheetByName("Página1");//
