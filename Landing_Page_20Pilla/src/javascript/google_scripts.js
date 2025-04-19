@@ -2,15 +2,16 @@ document.getElementById("newsletter-form").addEventListener("submit", function(e
     event.preventDefault();  // Previne o envio padrão do formulário
 
     const email = document.getElementById("email").value;  // Certifique-se de pegar o valor do campo com id 'email'
-    const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec"; // Sua URL do Google Apps Script
+    const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec"; // URL
 
     fetch(url, {
         method: "POST",
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/x-www-form-urlencoded",  
         },
-        body: `email=${encodeURIComponent(email)}`  // Envia o parâmetro 'email'
-    }).then(() => {
+        body: `email=${encodeURIComponent(email)}`  //   chave 'email' 
+    })
+    .then(() => {
         // Se o cadastro for bem-sucedido
         alert("🎉 Cadastro realizado com sucesso!");
         document.getElementById("newsletter-form").reset();  // Reseta o formulário
