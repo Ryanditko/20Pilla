@@ -2,6 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // Inicializa o EmailJS
   emailjs.init("HHgXYvITsuOl8GYaL");
 
+  // Configurações
+  const CONFIG = {
+    minEmailLength: 5,
+    maxEmailLength: 100,
+    GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbx_kABtnulsYQALUtzVgGqBIZ-fQIpa1gvJW7PyyRCfipGKyRrnD9UzbAUNiuqjQXkF/exec"
+  };
+
+  // Estado do formulário
+  let state = {
+    captchaVerified: false,
+    isSubmitting: false
+  };
+
   // Função para mostrar notificações
   function showNotification(type, message) {
     // Remove notificações anteriores
@@ -52,15 +65,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 5000);
   }
 
+  // Função para verificar se o email já está cadastrado
+  async function checkEmailExists(email) {
+    try {
+      const url = `${CONFIG.GOOGLE_SCRIPT_URL}?action=check&email=${encodeURIComponent(email)}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.exists;
+    } catch (error) {
+      console.error("Erro ao verificar email:", error);
+      return false;
+    }
+  }
+
   // Função para validar email
   function validateEmail(email) {
-    // Regex mais robusta para validação de email
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
     if (!email) {
       showNotification('error', 'Por favor, insira seu e-mail.');
       return false;
     }
+
+    if (email.length < CONFIG.minEmailLength || email.length > CONFIG.maxEmailLength) {
+      showNotification('error', `O e-mail deve ter entre ${CONFIG.minEmailLength} e ${CONFIG.maxEmailLength} caracteres.`);
+      return false;
+    }
+    
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     if (!emailRegex.test(email)) {
       showNotification('error', 'Por favor, insira um e-mail válido.');
@@ -70,9 +100,122 @@ document.addEventListener('DOMContentLoaded', function () {
     return true;
   }
 
+  // Função para cancelar inscrição
+  async function unsubscribeEmail(email) {
+    try {
+      const url = `${CONFIG.GOOGLE_SCRIPT_URL}?action=unsubscribe&email=${encodeURIComponent(email)}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      
+      if (data.success) {
+        showNotification('success', 'Sua inscrição foi cancelada com sucesso.');
+      } else {
+        showNotification('error', 'Não foi possível encontrar seu email em nossa lista.');
+      }
+    } catch (error) {
+      console.error("Erro ao cancelar inscrição:", error);
+      showNotification('error', 'Ocorreu um erro ao tentar cancelar sua inscrição. Tente novamente mais tarde.');
+    }
+  }
+
+  // Adiciona o captcha e formulário de cancelamento
+  function setupFormExtras() {
+    const form = document.getElementById('newsletter-form');
+    if (!form) return;
+
+    // Adiciona container do captcha
+    const captchaContainer = document.createElement('div');
+    captchaContainer.className = 'captcha-container';
+    captchaContainer.innerHTML = `
+      <div class="captcha-box">
+        <input type="checkbox" id="captcha-checkbox">
+        <label for="captcha-checkbox">
+          Não sou um robô
+        </label>
+      </div>
+    `;
+    form.appendChild(captchaContainer);
+
+    // Adiciona link para cancelar inscrição
+    const unsubscribeLink = document.createElement('div');
+    unsubscribeLink.className = 'unsubscribe-link';
+    unsubscribeLink.innerHTML = `
+      <button type="button" class="btn-link" id="unsubscribe-btn">
+        Cancelar inscrição da newsletter
+      </button>
+    `;
+    form.parentElement.appendChild(unsubscribeLink);
+
+    // Adiciona modal de cancelamento
+    const modal = document.createElement('div');
+    modal.className = 'unsubscribe-modal';
+    modal.innerHTML = `
+      <div class="modal-content">
+        <h3>Cancelar Inscrição</h3>
+        <p>Digite seu email para cancelar a inscrição na newsletter:</p>
+        <input type="email" id="unsubscribe-email" placeholder="Seu email">
+        <div class="modal-buttons">
+          <button type="button" class="btn-secondary" id="modal-cancel">Cancelar</button>
+          <button type="button" class="btn-primary" id="modal-confirm">Confirmar</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Eventos do captcha
+    const captchaCheckbox = document.getElementById('captcha-checkbox');
+    const captchaBox = document.querySelector('.captcha-box');
+    
+    captchaCheckbox.addEventListener('change', (e) => {
+      state.captchaVerified = e.target.checked;
+      
+      if (state.captchaVerified) {
+        captchaBox.classList.add('verified');
+        captchaBox.style.animation = 'checkPulse 0.4s ease-in-out';
+        setTimeout(() => {
+          captchaBox.style.animation = '';
+        }, 400);
+      } else {
+        captchaBox.classList.remove('verified');
+      }
+    });
+
+    // Eventos do modal de cancelamento
+    const unsubscribeBtn = document.getElementById('unsubscribe-btn');
+    const modalCancelBtn = document.getElementById('modal-cancel');
+    const modalConfirmBtn = document.getElementById('modal-confirm');
+
+    unsubscribeBtn.addEventListener('click', () => {
+      modal.classList.add('show');
+    });
+
+    modalCancelBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+      document.getElementById('unsubscribe-email').value = '';
+    });
+
+    modalConfirmBtn.addEventListener('click', async () => {
+      const email = document.getElementById('unsubscribe-email').value.trim();
+      if (validateEmail(email)) {
+        await unsubscribeEmail(email);
+        modal.classList.remove('show');
+        document.getElementById('unsubscribe-email').value = '';
+      }
+    });
+
+    // Fecha modal ao clicar fora
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+        document.getElementById('unsubscribe-email').value = '';
+      }
+    });
+  }
+
   const newsletterForm = document.getElementById('newsletter-form');
 
   if (newsletterForm) {
+    setupFormExtras();
     const emailInput = newsletterForm.querySelector('input[name="email"]');
     
     // Validação em tempo real
@@ -83,30 +226,48 @@ document.addEventListener('DOMContentLoaded', function () {
     newsletterForm.addEventListener('submit', async function (e) {
       e.preventDefault();
 
+      if (state.isSubmitting) {
+        showNotification('warning', 'Aguarde, sua solicitação está sendo processada...');
+        return;
+      }
+
       const email = emailInput.value.trim().toLowerCase();
 
-      // Validação do email
+      // Verificações iniciais
       if (!validateEmail(email)) {
         emailInput.classList.add('error');
         return;
       }
 
-      // Mostrar mensagem de carregamento
+      if (!state.captchaVerified) {
+        showNotification('error', 'Por favor, confirme que você não é um robô.');
+        return;
+      }
+
+      // Verifica se o email já está cadastrado
+      const emailExists = await checkEmailExists(email);
+      if (emailExists) {
+        showNotification('warning', 'Este email já está cadastrado em nossa newsletter!');
+        return;
+      }
+
+      // Atualiza estado
+      state.isSubmitting = true;
+
+      // Atualiza UI
       const submitButton = this.querySelector('button[type="submit"]');
       const originalText = submitButton.innerHTML;
       submitButton.innerHTML = '<span class="loading-spinner"></span> Enviando...';
       submitButton.disabled = true;
 
       try {
-        // URL do Google Apps Script
-        const url = "https://script.google.com/macros/s/AKfycbx_kABtnulsYQALUtzVgGqBIZ-fQIpa1gvJW7PyyRCfipGKyRrnD9UzbAUNiuqjQXkF/exec";
-        
         // Preparar dados para envio
         const searchParams = new URLSearchParams();
         searchParams.append('email', email);
+        searchParams.append('action', 'subscribe');
 
         // Enviar para o Google Apps Script
-        const response = await fetch(url + "?" + searchParams.toString(), {
+        const response = await fetch(CONFIG.GOOGLE_SCRIPT_URL + "?" + searchParams.toString(), {
           method: "POST",
           mode: 'no-cors',
           headers: {
@@ -122,6 +283,11 @@ document.addEventListener('DOMContentLoaded', function () {
           message: "Obrigado por se cadastrar em nossa newsletter!"
         });
 
+        // Reseta estado do formulário
+        state.captchaVerified = false;
+        document.getElementById('captcha-checkbox').checked = false;
+        document.querySelector('.captcha-box').classList.remove('verified');
+        
         // Mostrar mensagem de sucesso
         showNotification('success', '🎉 Cadastro realizado com sucesso! Em breve você receberá nossas novidades.');
         newsletterForm.reset();
@@ -133,6 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } finally {
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
+        state.isSubmitting = false;
       }
     });
   }
