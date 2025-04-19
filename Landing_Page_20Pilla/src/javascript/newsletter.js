@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
       newsletterForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const emailInput = this.querySelector('input[type="email"]');
-        const email = emailInput.value;
+        const emailInput = this.querySelector('input[name="email"]');
+        const email = emailInput.value.trim().toLowerCase();
         const nameInput = this.querySelector('input[name="name"]');
-        const userName = nameInput ? nameInput.value : "";
+        const userName = nameInput ? nameInput.value.trim() : "";
 
         // Validação básica de email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,19 +27,22 @@ document.addEventListener('DOMContentLoaded', function () {
         submitButton.disabled = true;
 
         // URL do Google Apps Script
-        const url = "https://script.google.com/macros/s/AKfycbyiRHncp5eYlofNdpfDdr6m2jZaW4hWgTDcT4MSc8qtSkt-LzSDn_jKMt_ecOnmHl-u/exec";
+        const url = "https://script.google.com/macros/s/AKfycbx_kABtnulsYQALUtzVgGqBIZ-fQIpa1gvJW7PyyRCfipGKyRrnD9UzbAUNiuqjQXkF/exec";
         
         // Preparar dados para envio
-        const formData = new FormData();
-        formData.append("email", email);
+        const queryString = `?email=${encodeURIComponent(email)}`;
 
         // Enviar para o Google Apps Script
-        fetch(url, {
+        fetch(url + queryString, {
           method: "POST",
-          body: formData
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
         })
         .then(response => response.text())
         .then(text => {
+          console.log("Resposta do servidor:", text); // Para debug
+          
           if (text.includes("já cadastrado")) {
             alert("⚠️ Este e-mail já está cadastrado em nossa newsletter!");
             return;
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return emailjs.send("service_2tbacnk", "template_egzp13d", {
               to_email: email,
               from_name: "20Pilla",
-              name: userName,
+              name: userName || "Cliente",
               message: "Obrigado por se cadastrar em nossa newsletter!"
             });
           }
@@ -59,11 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(() => {
           alert("🎉 Cadastro realizado com sucesso! Em breve você receberá nossas novidades.");
-          emailInput.value = "";
-          if (nameInput) nameInput.value = "";
+          newsletterForm.reset();
         })
         .catch(error => {
-          console.error("Erro:", error);
+          console.error("Erro detalhado:", error); // Para debug
           alert("⚠️ Ocorreu um erro ao tentar cadastrar. Por favor, tente novamente.");
         })
         .finally(() => {
