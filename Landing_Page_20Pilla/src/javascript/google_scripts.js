@@ -2,7 +2,7 @@ document.getElementById("newsletter-form").addEventListener("submit", function(e
     event.preventDefault();
     
     const email = document.getElementById("email").value;
-    const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec";  // Substitua pela URL da Web App
+    const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec";  // Substituir pela URL da Web App
   
     const formData = new URLSearchParams();
 formData.append("email", email);
