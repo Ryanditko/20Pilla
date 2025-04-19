@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Adiciona o evento de clique ao botão
     themeToggle.addEventListener('click', function() {
-        const currentTheme = html.getAttribute('data-theme');
+        const currentTheme = html.getAttribute('data-theme'); 
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         html.setAttribute('data-theme', newTheme);
