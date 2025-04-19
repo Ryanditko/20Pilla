@@ -4,13 +4,14 @@ document.getElementById("newsletter-form").addEventListener("submit", function(e
     const email = document.getElementById("email").value;
     const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec";  // Substitua pela URL da Web App
   
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: `email=${encodeURIComponent(email)}`
-    })
+    const formData = new URLSearchParams();
+formData.append("email", email);
+
+fetch(url, {
+  method: "POST",
+  body: formData
+})
+
     .then(() => {
       alert("🎉 Cadastro realizado com sucesso!");
       document.getElementById("newsletter-form").reset();
