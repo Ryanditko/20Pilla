@@ -2,7 +2,7 @@ document.getElementById("newsletter-form").addEventListener("submit", function(e
     event.preventDefault();  // Previne o envio padrão do formulário
 
     const email = document.getElementById("email").value;  // Certifique-se de pegar o valor do campo com id 'email'
-    const url = "https://script.google.com/macros/s/AKfycbx21YbY6v7P509V2ZMUdE0jsO3tr6jIImW-O8N7MIJ8hlPJd8sChtgBsgdDgWnpHNK4/exec"; // Sua URL do Google Apps Script
+    const url = "https://script.google.com/macros/s/AKfycbw1iUSlkUEmlAf8GiGVQwNq63f1jX8sZ4oAAWYzZWgFSZ1Xbxg-K4UOzh0zPmZovJ0J/exec"; // Sua URL do Google Apps Script
 
     fetch(url, {
         method: "POST",
