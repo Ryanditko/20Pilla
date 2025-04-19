@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .catch(function (error) {
                     console.error('Erro ao enviar email:', error);
-                    alert('Ocorreu um erro ao cadastrar seu e-mail. Por favor, tente novamente mais tarde.');
+                    alert(`Erro: ${error.text || 'Não foi possível enviar o e-mail. Verifique os campos e tente novamente.'}`);
                 })
+                
                 .finally(function () {
                     submitButton.innerHTML = originalText;
                     submitButton.disabled = false;
