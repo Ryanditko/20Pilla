@@ -469,7 +469,7 @@ body.light {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 300px;
+    max-height: 1000px;
 }
 
 @media (max-width: 768px) {
@@ -483,6 +483,10 @@ body.light {
 
     .faq-question h4 {
         font-size: 1rem;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 2000px;
     }
 }
 
@@ -501,6 +505,10 @@ body.light {
 
     .faq-question h4 {
         font-size: 0.95rem;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 3000px;
     }
 }
 
