@@ -71,11 +71,14 @@ document.addEventListener('DOMContentLoaded', function () {
       const url = `${CONFIG.GOOGLE_SCRIPT_URL}?action=check&email=${encodeURIComponent(email)}`;
       const response = await fetch(url, {
         method: 'GET',
-        mode: 'no-cors'
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
       
-      // Como estamos usando no-cors, vamos considerar que a resposta bem-sucedida significa que o email existe
-      return response.status === 0;
+      const text = await response.text();
+      // Verifica se a resposta contém a palavra "inativo" ou "não encontrado"
+      return !text.includes('inativo') && !text.includes('não encontrado');
     } catch (error) {
       console.error("Erro ao verificar email:", error);
       return false;
@@ -109,15 +112,25 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       const url = `${CONFIG.GOOGLE_SCRIPT_URL}?action=unsubscribe&email=${encodeURIComponent(email)}`;
       
-      // Primeira tentativa - cancelar a inscrição
-      await fetch(url, {
+      const response = await fetch(url, {
         method: 'POST',
-        mode: 'no-cors'
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
 
-      // Se não houve erro até aqui, consideramos que deu certo
-      showNotification('success', 'Sua inscrição foi cancelada com sucesso.');
-      return true;
+      const text = await response.text();
+      const success = text.includes('sucesso') || text.includes('cancelada');
+
+      if (success) {
+        showNotification('success', 'Sua inscrição foi cancelada com sucesso.');
+        // Força uma atualização do cache local
+        localStorage.removeItem('newsletter_status_' + email);
+        return true;
+      } else {
+        showNotification('error', 'Não foi possível encontrar seu email em nossa lista.');
+        return false;
+      }
       
     } catch (error) {
       console.error("Erro ao cancelar inscrição:", error);
@@ -266,13 +279,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // Verifica se o email já está cadastrado
-      const emailExists = await checkEmailExists(email);
-      if (emailExists) {
-        showNotification('warning', 'Este email já está cadastrado em nossa newsletter!');
-        return;
-      }
-
       // Atualiza estado
       state.isSubmitting = true;
 
@@ -289,13 +295,18 @@ document.addEventListener('DOMContentLoaded', function () {
         searchParams.append('action', 'subscribe');
 
         // Enviar para o Google Apps Script
-        await fetch(CONFIG.GOOGLE_SCRIPT_URL + "?" + searchParams.toString(), {
+        const response = await fetch(CONFIG.GOOGLE_SCRIPT_URL + "?" + searchParams.toString(), {
           method: "POST",
-          mode: 'no-cors',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json'
           }
         });
+
+        const text = await response.text();
+        if (text.includes('já cadastrado')) {
+          showNotification('warning', 'Este email já está cadastrado em nossa newsletter!');
+          return;
+        }
 
         // Enviar email de confirmação
         await emailjs.send("service_2tbacnk", "template_egzp13d", {
