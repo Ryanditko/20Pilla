@@ -308,3 +308,180 @@
         font-size: 1.3rem;
     }
 }
+
+/* Ajustes para telas muito grandes */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+        margin: 0 auto;
+    }
+
+    #cta {
+        padding-right: 5%;
+    }
+
+    .dish {
+        width: 23%;
+    }
+
+    .section-subtitle {
+        font-size: 2.5rem;
+    }
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 360px) {
+    .title {
+        font-size: 1.4rem;
+    }
+    
+    .description {
+        font-size: 0.85rem;
+    }
+    
+    #cta_buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    #cta_buttons .btn-default {
+        width: 100%;
+    }
+    
+    #phone_button {
+        font-size: 0.9rem;
+    }
+    
+    .newsletter-form {
+        padding: 1rem;
+    }
+    
+    .captcha-container {
+        padding: 10px;
+    }
+    
+    .robot-check {
+        padding: 8px 12px;
+    }
+    
+    .robot-check label {
+        font-size: 13px;
+    }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 600px) and (orientation: landscape) {
+    #home {
+        min-height: auto;
+        padding: 2rem 5%;
+    }
+    
+    #banner {
+        max-height: 60vh;
+        object-fit: contain;
+    }
+    
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .description {
+        margin: 1rem 0;
+    }
+}
+
+/* Ajustes para tablets em modo retrato */
+@media (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
+    #dishes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .dish {
+        width: 100%;
+    }
+    
+    #testimonials {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #testimonials_content {
+        width: 100%;
+        max-width: 700px;
+    }
+}
+
+/* Ajustes para dispositivos dobráveis */
+@media (max-width: 320px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .title {
+        font-size: 1.3rem;
+    }
+    
+    .btn-default {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .dish-price h4 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para telas de alta densidade (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Ajustes para modo de impressão */
+@media print {
+    .btn-default,
+    .social-media-buttons,
+    #mobile_btn,
+    #newsletter {
+        display: none;
+    }
+    
+    * {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+}
+
+/* Ajustes para navegadores antigos */
+@supports not (display: grid) {
+    #dishes,
+    .more-reviews-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .dish {
+        flex: 0 1 calc(50% - 1rem);
+        margin: 0.5rem;
+    }
+}

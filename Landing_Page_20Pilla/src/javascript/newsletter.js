@@ -168,17 +168,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!state.captchaVerified) {
         showNotification('error', 'Por favor, confirme que você não é um robô.');
-        return;
-      }
+          return;
+        }
 
       // Atualiza estado
       state.isSubmitting = true;
 
       // Atualiza UI
-      const submitButton = this.querySelector('button[type="submit"]');
-      const originalText = submitButton.innerHTML;
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
       submitButton.innerHTML = '<span class="loading-spinner"></span> Enviando...';
-      submitButton.disabled = true;
+        submitButton.disabled = true;
 
       try {
         // Tenta cadastrar o email diretamente
@@ -226,6 +226,6 @@ document.addEventListener('DOMContentLoaded', function () {
         submitButton.disabled = false;
         state.isSubmitting = false;
       }
-    });
+      });
   }
 });
