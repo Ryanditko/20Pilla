@@ -26,7 +26,7 @@ document.getElementById("newsletter-form").addEventListener("submit", function(e
   })
   .catch(error => {
     console.error(error);
-    alert("❌ Ocorreu um erro. Tente novamente.");
+    alert("⚠️ Ocorreu um erro. Tente novamente.");
   });
 });
 

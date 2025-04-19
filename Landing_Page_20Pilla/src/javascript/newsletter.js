@@ -60,10 +60,16 @@ document.addEventListener('DOMContentLoaded', function () {
           });
 
         // Enviar o e-mail para o Google Apps Script (planilha)
-        fetch("https://script.google.com/macros/s/AKfycbyiRHncp5eYlofNdpfDdr6m2jZaW4hWgTDcT4MSc8qtSkt-LzSDn_jKMt_ecOnmHl-u/exec" + encodeURIComponent(email))
+        fetch("https://script.google.com/macros/s/AKfycbyiRHncp5eYlofNdpfDdr6m2jZaW4hWgTDcT4MSc8qtSkt-LzSDn_jKMt_ecOnmHl-u/exec?email=" + encodeURIComponent(email))
           .then(response => response.text())
           .then(text => {
-            console.log(text); // Para verificar se o e-mail foi registrado com sucesso na planilha
+            if (text.toLowerCase().includes("já está cadastrado")) {
+              alert("⚠️ Você já está cadastrado.");
+            } else if (text.toLowerCase().includes("sucesso")) {
+              alert("🎉 Cadastro realizado com sucesso!");
+            } else {
+              alert("⚠️ Algo deu errado: " + text);
+            }
           })
           .catch(error => {
             console.error("Erro ao enviar para o servidor:", error);
