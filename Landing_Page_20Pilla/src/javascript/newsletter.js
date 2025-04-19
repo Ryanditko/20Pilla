@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () { 
-  // Inicializa o EmailJS (só precisa fazer uma vez)
-  emailjs.init("HHgXYvITsuOl8GYaL"); // Substitua pelo seu User ID do EmailJS
+  // Inicializa o EmailJS
+  emailjs.init("HHgXYvITsuOl8GYaL");
 
   const newsletterForm = document.getElementById('newsletter-form');
 
   if (newsletterForm) {
       newsletterForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Evita o envio padrão do formulário 
+        e.preventDefault();
 
         const emailInput = this.querySelector('input[type="email"]');
         const email = emailInput.value;
@@ -23,58 +23,53 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mostrar mensagem de carregamento
         const submitButton = this.querySelector('button[type="submit"]');
         const originalText = submitButton.innerHTML;
-        submitButton.innerHTML =
-          '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...'; // Troca o texto do botão
-
-        // Desabilita o botão para evitar múltiplos envios
+        submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
         submitButton.disabled = true;
 
-        // Enviar email via EmailJS
-        emailjs
-          .send("service_2tbacnk", "template_egzp13d", {
-            to_email: email,
-            from_name: "20Pilla",
-            name: userName,
-            message: "Obrigado por se cadastrar em nossa newsletter!",
-          })
-          .then(function () {
-            alert(
-              "Obrigado por se inscrever! Em breve você receberá todas as nossas novidades."
-            );
-            emailInput.value = "";
-            if (nameInput) nameInput.value = "";
-          })
-          .catch(function (error) {
-            console.error("Erro ao enviar email:", error);
-            alert(
-              `Erro: ${
-                error.text ||
-                "Não foi possível enviar o e-mail. Verifique os campos e tente novamente."
-              }`
-            );
-          })
+        // URL do Google Apps Script
+        const url = "https://script.google.com/macros/s/AKfycbyiRHncp5eYlofNdpfDdr6m2jZaW4hWgTDcT4MSc8qtSkt-LzSDn_jKMt_ecOnmHl-u/exec";
+        
+        // Preparar dados para envio
+        const formData = new FormData();
+        formData.append("email", email);
 
-          .finally(function () {
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-          });
-
-        // Enviar o e-mail para o Google Apps Script (planilha)
-        fetch("https://script.google.com/macros/s/AKfycbyiRHncp5eYlofNdpfDdr6m2jZaW4hWgTDcT4MSc8qtSkt-LzSDn_jKMt_ecOnmHl-u/exec?email=" + encodeURIComponent(email))
-          .then(response => response.text())
-          .then(text => {
-            if (text.toLowerCase().includes("já está cadastrado")) {
-              alert("⚠️ Você já está cadastrado.");
-            } else if (text.toLowerCase().includes("sucesso")) {
-              alert("🎉 Cadastro realizado com sucesso!");
-            } else {
-              alert("⚠️ Algo deu errado: " + text);
-            }
-          })
-          .catch(error => {
-            console.error("Erro ao enviar para o servidor:", error);
-            alert("Erro ao enviar para o servidor, tente novamente.");
-          });
+        // Enviar para o Google Apps Script
+        fetch(url, {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.text())
+        .then(text => {
+          if (text.includes("já cadastrado")) {
+            alert("⚠️ Este e-mail já está cadastrado em nossa newsletter!");
+            return;
+          }
+          
+          if (text.includes("sucesso")) {
+            // Se cadastrou com sucesso na planilha, envia o email de boas-vindas
+            return emailjs.send("service_2tbacnk", "template_egzp13d", {
+              to_email: email,
+              from_name: "20Pilla",
+              name: userName,
+              message: "Obrigado por se cadastrar em nossa newsletter!"
+            });
+          }
+          
+          throw new Error(text);
+        })
+        .then(() => {
+          alert("🎉 Cadastro realizado com sucesso! Em breve você receberá nossas novidades.");
+          emailInput.value = "";
+          if (nameInput) nameInput.value = "";
+        })
+        .catch(error => {
+          console.error("Erro:", error);
+          alert("⚠️ Ocorreu um erro ao tentar cadastrar. Por favor, tente novamente.");
+        })
+        .finally(() => {
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
+        });
       });
   }
 });
