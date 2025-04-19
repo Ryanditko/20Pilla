@@ -1,63 +1,41 @@
-document.addEventListener('DOMContentLoaded', function () { 
-    // Inicializa o EmailJS (só precisa fazer uma vez)
-    emailjs.init("HHgXYvITsuOl8GYaL"); // Substitua pelo seu User ID do EmailJS
+document.getElementById("newsletter-form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-    const newsletterForm = document.getElementById('newsletter-form');
+  const email = document.getElementById("email").value;
 
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function (e) {
-          e.preventDefault(); // Evita o envio padrão do formulário 
+  // Primeiro, envie para o Google Scripts
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({ email: email }).toString() 
+  })
+  .then(response => response.text())
+  .then(text => {
+    if (text.toLowerCase().includes("sucesso")) {
+      alert("🎉 Cadastro realizado com sucesso!");
 
-          const emailInput = this.querySelector('input[type="email"]');
-          const email = emailInput.value;
-          const nameInput = this.querySelector('input[name="name"]');
-          const userName = nameInput ? nameInput.value : "";
-
-          // Validação básica de email
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            alert("Por favor, insira um e-mail válido.");
-            return;
-          }
-
-          // Mostrar mensagem de carregamento
-          const submitButton = this.querySelector('button[type="submit"]');
-          const originalText = submitButton.innerHTML;
-          submitButton.innerHTML =
-            '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...'; // Troca o texto do botão
-
-          // Desabilita o botão para evitar múltiplos envios
-          submitButton.disabled = true;
-
-          // Enviar email via EmailJS
-          emailjs
-            .send("service_2tbacnk", "template_egzp13d", {
-              to_email: email,
-              from_name: "20Pilla",
-              name: userName,
-              message: "Obrigado por se cadastrar em nossa newsletter!",
-            })
-            .then(function () {
-              alert(
-                "Obrigado por se inscrever! Em breve você receberá todas as nossas novidades."
-              );
-              emailInput.value = "";
-              if (nameInput) nameInput.value = "";
-            })
-            .catch(function (error) {
-              console.error("Erro ao enviar email:", error);
-              alert(
-                `Erro: ${
-                  error.text ||
-                  "Não foi possível enviar o e-mail. Verifique os campos e tente novamente."
-                }`
-              );
-            })
-
-            .finally(function () {
-              submitButton.innerHTML = originalText;
-              submitButton.disabled = false;
-            });
-        });
+      // Depois, envie para o EmailJS
+      emailjs.send("service_2tbacnk", "template_egzp13d", {
+        to_email: email,
+        from_name: "20Pilla",
+        name: "",
+        message: "Obrigado por se cadastrar em nossa newsletter!",
+      })
+      .then(function() {
+        alert("Obrigado por se inscrever! Em breve você receberá todas as nossas novidades.");
+      })
+      .catch(function(error) {
+        console.error("Erro ao enviar email:", error);
+        alert("Erro ao enviar o e-mail.");
+      });
+    } else {
+      alert("⚠️ Algo deu errado: " + text);
     }
+  })
+  .catch(error => {
+    console.error(error);
+    alert("❌ Ocorreu um erro. Tente novamente.");
+  });
 });
