@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
           });
 
         // Enviar o e-mail para o Google Apps Script (planilha)
-        fetch("https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec" + encodeURIComponent(email))
+        fetch("https://script.google.com/macros/s/AKfycbyiRHncp5eYlofNdpfDdr6m2jZaW4hWgTDcT4MSc8qtSkt-LzSDn_jKMt_ecOnmHl-u/exec" + encodeURIComponent(email))
           .then(response => response.text())
           .then(text => {
             console.log(text); // Para verificar se o e-mail foi registrado com sucesso na planilha

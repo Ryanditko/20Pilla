@@ -2,7 +2,7 @@ document.getElementById("newsletter-form").addEventListener("submit", function(e
   event.preventDefault();
 
   const email = document.getElementById("email").value;
-  const url = "https://script.google.com/macros/s/AKfycbwLcEoMdE6hKCunQSbVC2O7woafNoyJSW053-qI39RJzvEZql1BxGVb8-X_WIBMW16E/exec" + encodeURIComponent(email);
+  const url = "https://script.google.com/macros/s/AKfycbyiRHncp5eYlofNdpfDdr6m2jZaW4hWgTDcT4MSc8qtSkt-LzSDn_jKMt_ecOnmHl-u/exec" + encodeURIComponent(email);
 
 
   const formData = new URLSearchParams();
