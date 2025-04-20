@@ -8,6 +8,7 @@
 @import url('scroll.css');
 @import url('media.css');
 @import url('mediaquery.css');
+@import url('captcha.css');
 
 /* Variáveis de cores e temas */
 :root {
