@@ -1,0 +1,42 @@
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px; background-color: #f6f6f6; color: #111">
+  <div style="max-width: 600px; margin: auto; padding: 24px; background-color: #fff; border-radius: 8px;">
+    <div style="text-align: center; margin-bottom: 20px;">
+
+
+    <h2 style="color: #1a1a1a;">Seja Bem-Vindo à 20Pilla 🌐</h2>
+
+    <p>Salve! Você acabou de entrar na nossa newsletter, por aqui irá receber as principais notícias da headshop mais firmeza de Sampa.</p>
+
+    <p>Agora que seu cadastro ta criado, é só chegar com vontade de explorar: <strong>lifestyle canábico e aquela curadoria sinistra</strong> de quem entende o rolê.</p>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a
+        href="https://wa.me/5511943969951"
+        target="_blank"
+        style="
+          background-color: #9d4edd;
+          color: #fff;
+          padding: 12px 24px;
+          border-radius: 6px;
+          font-weight: bold;
+          text-decoration: none;
+        "
+      >
+        Conhecer a loja!
+      </a>
+    </div>
+
+    <p>Se tiver alguma dúvida, sugestão ou quiser entrar em contato, cola com a gente no e-mail: <a href="20.pillamarca@gmail.com" style="color: #9d4edd; text-decoration: none;">20Pilla</a></p>
+
+    <p>Valeu por fortalecer nossa marca!<br />
+    Conte conosco 💜<br />
+    <strong>Equipe 20Pilla</strong></p>
+  </div>
+
+  <div style="max-width: 600px; margin: auto; text-align: center; padding: 16px 0; color: #666; font-size: 13px;">
+    <p>Siga a gente nas redes: 
+      <a href="https://www.instagram.com/20.Pilla" style="color: #9d4edd; text-decoration: none;">@20pilla</a>
+    </p>
+    <p>Você recebeu esse e-mail porque se cadastrou no site da 20Pilla.</p>
+  </div>
+</div>
