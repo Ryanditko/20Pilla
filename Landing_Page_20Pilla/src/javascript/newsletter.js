@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const CONFIG = {
     minEmailLength: 5,
     maxEmailLength: 100,
-    GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbx21YbY6v7P509V2ZMUdE0jsO3tr6jIImW-O8N7MIJ8hlPJd8sChtgBsgdDgWnpHNK4/exec"
+    GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbx21YbY6v7P509V2ZMUdE0jsO3tr6jIImW-O8N7MIJ8hlPJd8sChtgBsgdDgWnpHNK4/exec",
+    EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+    EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID, 
   };
 
   let state = {
@@ -166,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         try {
-          await emailjs.send("EMAILJS_SERVICE_ID", "EMAILJS_TEMPLATE_ID", {
+          await emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, {
             to_email: email,
             from_name: "20Pilla",
             name: "Cliente",
