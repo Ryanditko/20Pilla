@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Newsletter 20Pilla</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #885df5;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      width: 300px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin-left: 10px;
+      border: none;
+      background-color: #885df5;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .mensagem {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fique por dentro das novidades!</h1>
+  <p>Cadastre-se para receber ofertas exclusivas e lançamentos em primeira mão.</p>
+
+  <form id="formulario">
+    <input type="email" name="email" id="email" placeholder="Seu melhor e-mail" required>
+    <button type="submit">Quero receber novidades!</button>
+  </form>
+
+  <div class="mensagem" id="mensagem"></div>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const url = " https://script.google.com/macros/s/AKfycbx21YbY6v7P509V2ZMUdE0jsO3tr6jIImW-O8N7MIJ8hlPJd8sChtgBsgdDgWnpHNK4/exec"; // 🔁 Substitua isso
+
+      fetch(url, {
+        method: "POST",
+        mode: "no-cors", // evita o erro de CORS no front-end
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `email=${encodeURIComponent(email)}`
+      }).then(() => {
+        document.getElementById("mensagem").innerText = "🎉 Cadastro realizado com sucesso!";
+        document.getElementById("formulario").reset();
+      }).catch(() => {
+        document.getElementById("mensagem").innerText = "Ocorreu um erro. Tente novamente.";
+      });
+    });
+  </script>
+
+</body>
+</html>
