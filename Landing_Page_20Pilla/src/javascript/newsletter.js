@@ -1,5 +1,14 @@
-document.addEventListener('DOMContentLoaded', function () { 
-  emailjs.init("HHgXYvITsuOl8GYaL"); 
+document.addEventListener('DOMContentLoaded', async function () { 
+  // Buscar configurações do EmailJS do servidor
+  let emailjsConfig = null;
+  try {
+    const response = await fetch('/api/emailjs-config');
+    emailjsConfig = await response.json();
+    emailjs.init(emailjsConfig.user_id);
+  } catch (error) {
+    console.error('Erro ao carregar configurações do EmailJS:', error);
+    return;
+  }
 
   const CONFIG = {
     minEmailLength: 5,
@@ -166,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         try {
-          await emailjs.send("service_2tbacnk", "template_egzp13d", {
+          await emailjs.send("service_haqbaq4",' template_1tdwf8e', {
             to_email: email,
             from_name: "20Pilla",
             name: "Cliente",
