@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         try {
-          await emailjs.send("service_haqbaq4", " template_1tdwf8e", {
+          await emailjs.send("service_haqbaq4", "template_cleqivy", {
             to_email: email,
             from_name: "20Pilla",
             name: "Cliente",
