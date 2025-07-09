@@ -10,15 +10,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('.')); // Serve os arquivos estáticos do diretório atual
 
-// Rota para obter as configurações do EmailJS
-app.get('/api/emailjs-config', (req, res) => {
-    res.json({
-        user_id: process.env.EMAILJS_USER_ID,
-        service_id: process.env.EMAILJS_SERVICE_ID,
-        template_id: process.env.EMAILJS_TEMPLATE_ID
-    });
-});
-
 // Rota para processar o email da newsletter
 app.post('/api/newsletter', async (req, res) => {
     try {

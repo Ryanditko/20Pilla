@@ -166,12 +166,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         try {
-          await emailjs.send("service_haqbaq4", "template_cleqivy", {
+          await emailjs.send("service_2tbacnk", "template_egzp13d", {
             to_email: email,
             from_name: "20Pilla",
             name: "Cliente",
             message: "Obrigado por se cadastrar em nossa newsletter!"
-          });
+          }); 
 
           state.captchaVerified = false;
           document.getElementById('captcha-checkbox').checked = false;
