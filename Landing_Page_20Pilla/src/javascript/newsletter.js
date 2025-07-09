@@ -166,11 +166,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         try {
-          await emailjs.send("service_2tbacnk", "template_7q5cj4h", {
+          await emailjs.send("service_haqbaq4", "template_1tdwf8e", {
             to_email: email,
             from_name: "20Pilla",
             name: "Cliente",
-            message: "Obrigado por se cadastrar em nossa newsletter!"
+            message: "Obrigado por se cadastrar em nossa newsletter! Se precisar de contato, escreva para 20.pillamarca@gmail.com."
           }); 
 
           state.captchaVerified = false;

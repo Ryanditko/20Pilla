@@ -811,3 +811,13 @@ body.light {
         opacity: 0;
     }
 } 
+
+.contact-link {
+  color: var(--color-primary-4) !important;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.contact-link:hover {
+  color: var(--color-primary-6) !important;
+} 
