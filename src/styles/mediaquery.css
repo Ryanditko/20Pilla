@@ -1,0 +1,487 @@
+/* Responsiva via media query */
+@media (max-width: 1200px) {
+    nav ul {
+        gap: 1rem;
+    }
+  
+    nav a {
+        font-size: 0.95rem;
+    }
+  
+    section {
+        margin: 2rem 0;
+        padding: 2rem;
+    }
+    
+    #cta {
+        width: 60%;
+    }
+    
+    #banner {
+        width: 40%;
+    }
+    
+    .dish {
+        width: 45%;
+    }
+    
+    .more-reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #testimonials {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    #testimonials_content {
+        width: 60%;
+    }
+}
+
+/* Tablets e dispositivos médios */
+@media (max-width: 992px) {
+    nav ul {
+        gap: 0.8rem;
+    }
+    
+    #cta {
+        width: 70%;
+    }
+    
+    #banner {
+        width: 30%;
+    }
+    
+    .dish {
+        width: 45%;
+    }
+    
+    .section-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .more-reviews-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 3rem auto 0;
+    }
+
+    #testimonials {
+        gap: 2rem;
+    }
+
+    #testimonials_content {
+        width: 65%;
+    }
+}
+
+/* Tablets pequenos e celulares grandes */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+  
+    nav a {
+        justify-content: center;
+        font-size: 1rem;
+    }
+  
+    section {
+        padding: 28px 5%;
+    }
+    
+    #cta {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #banner {
+        width: 80%;
+        margin: 2rem auto 0;
+    }
+    
+    #cta_buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .social-media-buttons {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .dish {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    #testimonials {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    #testimonials_content {
+        width: 100%;
+    }
+    
+    #testimonial_chef {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    
+    .feedback {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .section-title, .section-subtitle {
+        text-align: center;
+        width: 100%;
+    }
+
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .more-reviews {
+        padding: 1.5rem;
+    }
+    
+    .review-card {
+        padding: 1.5rem;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .review-avatar {
+        margin: 0 auto 1rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 576px) {
+    #banner {
+        width: 100%;
+        margin: 2rem auto 0;
+    }
+    
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+    }
+    
+    #testimonial_chef {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .dish-price h4 {
+        font-size: 1rem;
+    }
+    
+    .dish-title {
+        font-size: 1.2rem;
+    }
+    
+    .dish-description {
+        font-size: 0.8rem;
+    }
+    
+    .more-reviews-title {
+        font-size: 1.8rem;
+    }
+    
+    .review-card {
+        padding: 1.2rem;
+    }
+    
+    .review-name {
+        font-size: 1.1rem;
+    }
+    
+    .review-text {
+        font-size: 0.9rem;
+    }
+    
+    .review-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    #testimonials {
+        padding: 2rem 1rem;
+    }
+
+    .feedback {
+        padding: 1.5rem;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 400px) {
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .btn-default {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .social-media-buttons a {
+        width: 40px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    #testimonial_chef {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .more-reviews {
+        padding: 1rem;
+    }
+    
+    .review-card {
+        padding: 1rem;
+    }
+    
+    .review-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .review-name {
+        font-size: 1rem;
+    }
+    
+    .review-date {
+        font-size: 0.8rem;
+    }
+    
+    .review-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .review-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    #testimonials {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .feedback {
+        padding: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* Ajustes para telas muito grandes */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+        margin: 0 auto;
+    }
+
+    #cta {
+        padding-right: 5%;
+    }
+
+    .dish {
+        width: 23%;
+    }
+
+    .section-subtitle {
+        font-size: 2.5rem;
+    }
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 360px) {
+    .title {
+        font-size: 1.4rem;
+    }
+    
+    .description {
+        font-size: 0.85rem;
+    }
+    
+    #cta_buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    #cta_buttons .btn-default {
+        width: 100%;
+    }
+    
+    #phone_button {
+        font-size: 0.9rem;
+    }
+    
+    .newsletter-form {
+        padding: 1rem;
+    }
+    
+    .captcha-container {
+        padding: 10px;
+    }
+    
+    .robot-check {
+        padding: 8px 12px;
+    }
+    
+    .robot-check label {
+        font-size: 13px;
+    }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 600px) and (orientation: landscape) {
+    #home {
+        min-height: auto;
+        padding: 2rem 5%;
+    }
+    
+    #banner {
+        max-height: 60vh;
+        object-fit: contain;
+    }
+    
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .description {
+        margin: 1rem 0;
+    }
+}
+
+/* Ajustes para tablets em modo retrato */
+@media (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
+    #dishes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .dish {
+        width: 100%;
+    }
+    
+    #testimonials {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #testimonials_content {
+        width: 100%;
+        max-width: 700px;
+    }
+}
+
+/* Ajustes para dispositivos dobráveis */
+@media (max-width: 320px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .title {
+        font-size: 1.3rem;
+    }
+    
+    .btn-default {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .dish-price h4 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para telas de alta densidade (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Ajustes para modo de impressão */
+@media print {
+    .btn-default,
+    .social-media-buttons,
+    #mobile_btn,
+    #newsletter {
+        display: none;
+    }
+    
+    * {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+}
+
+/* Ajustes para navegadores antigos */
+@supports not (display: grid) {
+    #dishes,
+    .more-reviews-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .dish {
+        flex: 0 1 calc(50% - 1rem);
+        margin: 0.5rem;
+    }
+}

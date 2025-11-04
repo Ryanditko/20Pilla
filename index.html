@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="20Pilla - A mais nova marca Brasileira de HEADSHOP. Produtos exclusivos, design autêntico e qualidade premium para sua experiência.">
+    <meta name="keywords" content="headshop, acessórios, design, produtos premium, loja brasileira">
+    <meta property="image" src="img/globo_2[1].png">
+    <meta name="author" content="20Pilla">
+    <meta property="og:title" content="20Pilla - Headshop Premium">
+    <meta property="og:description" content="A mais nova marca Brasileira de HEADSHOP. Produtos exclusivos e design autêntico.">
+    <meta property="og:image" content="src/img/globo_2[1].png">
+    <meta property="og:url" content="https://20pilla.com.br">
+    <meta name="theme-color" content="#13002c">
+    
+    <title>20Pilla - Headshop </title>
+    <link rel="icon" type="image/png" href="src/img/globo_2[1].png">
+    <link rel="canonical" href="https://20pilla.com.br">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/styles/styles.css"> 
+    
+    <!-- Scripts necessários -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Botão de tema comentado
+    <button id="toggle" class="theme-toggle" aria-label="Alternar tema">
+        <span class="theme-icon"><i class="fas fa-sun"></i></span>
+        <span>Modo Escuro</span>
+    </button>
+    -->
+    <script src="src/javascript/mode.js"></script>
+    <link rel="stylesheet" href="src/styles/media.css">
+    <link rel="stylesheet" href="src/styles/newsletter.css">
+    
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <i class="" id="nav_logo">A mais nova <br> marca Brasileira de HEADSHOP</i>
+
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#home">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <button class="btn-default" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfB0HOv3gEIrgrSqACq_Ssc_kvAAxD-ngQ6FNrhL_MPn4ccEw/viewform?usp=dialog', '_blank')"> 
+                Fale conosco!
+            </button>
+            
+
+            <button id="mobile_btn"> 
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="#home">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <button class="btn-default" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfB0HOv3gEIrgrSqACq_Ssc_kvAAxD-ngQ6FNrhL_MPn4ccEw/viewform?usp=dialog', '_blank')">
+                Fale conosco!
+            </button>
+        </div>
+    </header>
+
+    <main id="content">
+        <section id="home" class="parallax">
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 class="title animate-slide-left">
+                    Identidade é Atitude 
+                    <span>Estilo é Escolha</span>
+                </h1>
+
+                <p class="description animate-slide-right">
+        
+            Viemos para nos tornar referência em identidade visual. <br> Curadoria precisa e design autêntico.
+            <!-- <ul> -->
+                <!-- <li>Roxo para a Ousadia.</li> -->
+                <!-- <li>Preto para a Presença.</li> -->
+                <!-- <li>Branco para a Essência.</li> -->
+            <!-- </ul> -->
+                </p>
+
+                <div id="cta_buttons">
+                    <a href="#" class="btn-default">
+                        Ver Loja
+                    </a>
+
+                    <a href="tel: +55 11964393246" id="phone_button">
+                        <button class="btn-default">
+                            <i class="fa-solid fa-phone"></i>
+                        </button>
+                        (55) 11964393246
+                    </a>
+                </div>
+
+                <div class="social-media-buttons">
+                    <a href="https://wa.me/5511964393246">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/20.Pilla">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/people/20-Pilla/61575339840067/?mibextid=wwXIfr&rdid=f8p6YBYP8xCnY3vz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16EpugFpJx%2F%3Fmibextid%3DwwXIfr">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="banner" class="animate-fade-in">
+                <img src="src/img/Layer_5[1].png" alt="">
+            </div>
+        </section>
+
+        <section id="menu">
+            <h2 class="section-title gradient-bg">O que oferecemos</h2>
+            <h3 class="section-subtitle">Nossos Melhores Produtos</h3>
+
+            <div id="dishes">
+                <!-- Piteira Anti Stress - R$ 30,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-anti-stress.jpg" class="dish-image animate-float" alt="Piteira Anti Stress">
+                    <h3 class="dish-title">Piteira Anti Stress</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 30,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Piteira Nave - R$ 26,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-nave.jpg" class="dish-image animate-float" alt="Piteira Nave">
+                    <h3 class="dish-title">Piteira Nave</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 26,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Piteira Impulsion - R$ 30,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-impulsion.jpg" class="dish-image animate-float" alt="Piteira Impulsion">
+                    <h3 class="dish-title">Piteira Impulsion</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 30,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Piteira Meleca - R$ 26,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-melaca.jpg" class="dish-image animate-float" alt="Piteira Meleca">
+                    <h3 class="dish-title">Piteira Meleca</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 26,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Piteira Cogumelo - R$ 30,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-cogumelo.jpg" class="dish-image animate-float" alt="Piteira Cogumelo">
+                    <h3 class="dish-title">Piteira Cogumelo</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 30,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Piteira Esfera - R$ 30,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-esfera.jpg" class="dish-image animate-float" alt="Piteira Esfera">
+                    <h3 class="dish-title">Piteira Esfera</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 30,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Piteira Mel - R$ 26,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-mel.jpg" class="dish-image animate-float" alt="Piteira Mel">
+                    <h3 class="dish-title">Piteira Mel</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 26,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Piteira Lápis - R$ 28,00 -->
+                <div class="dish shine-effect">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <img src="src/img/piteira-lapis.jpg" class="dish-image animate-float" alt="Piteira Lápis">
+                    <h3 class="dish-title">Piteira Lápis</h3>
+                    <span class="dish-description">Piteira artística com comprimento padrão de 7cm, diâmetro varia entre 4 e 8mm (consultar disponibilidade via dm).</span>
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(Novo)</span>
+                    </div>
+                    <div class="dish-price">
+                        <h4>R$ 28,00</h4>
+                        <button class="btn-default" onclick="window.open('https://wa.me/5511964393246', '_blank')">
+                            <i class="fa-solid fa-shopping-cart"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <img src="src/img/globo_2[1].png" id="testimonial_chef pulse-effect" alt="">
+
+            <div id="testimonials_content">
+                <h2 class="section-title gradient-bg">
+                    Depoimentos
+                </h2>    
+
+                <div id="feedbacks">
+                    <div class="feedback ripple-effect">
+                        <img src="src/img/globo 1[1].png" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                               Bruno Aparecido
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                Comprei na 20pillla pela primeira vez e fiquei impressionado com a qualidade dos produtos! Chegou rápido, bem embalado e exatamente como anunciado. Já virei cliente fiel!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feedback ripple-effect">
+                        <img src="src/img/globo 1[1].png" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                                Felipe Rizzo
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                Simplesmente amei minha compra na 20pillla! Atendimento atencioso, entrega rápida e o produto superou minhas expectativas. Recomendo de olhos fechados!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-default" id="ver-mais-avaliacoes">
+                    Ver mais avaliações
+                </button>
+                
+            </div>
+
+            <div class="more-reviews" id="mais-avaliacoes">
+                <h2 class="more-reviews-title">Mais Avaliações</h2>
+                
+                <div class="more-reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Maria Silva</h3>
+                                <span class="review-date">15/03/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "Produtos incríveis! A qualidade e o design são excepcionais. 
+                            Recomendo fortemente para quem busca itens únicos e bem feitos."
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Qualidade</span>
+                            <span class="review-tag">Design</span>
+                            <span class="review-tag">Atendimento</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">João Santos</h3>
+                                <span class="review-date">10/03/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "Entrega super rápida e produtos de alta qualidade. 
+                            O atendimento foi excelente e os produtos superaram minhas expectativas."
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Entrega</span>
+                            <span class="review-tag">Qualidade</span>
+                            <span class="review-tag">Atendimento</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Ana Oliveira</h3>
+                                <span class="review-date">05/03/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "Adorei a experiência de compra! Os produtos são lindos e 
+                            o atendimento foi muito atencioso. Com certeza voltarei a comprar."
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Experiência</span>
+                            <span class="review-tag">Qualidade</span>
+                            <span class="review-tag">Recomendo</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Pedro Mendes</h3>
+                                <span class="review-date">01/03/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "A bandeja 20Pilla é simplesmente perfeita! O acabamento é impecável e 
+                            os detalhes fazem toda diferença. Vale cada centavo investido."
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Premium</span>
+                            <span class="review-tag">Acabamento</span>
+                            <span class="review-tag">Custo-benefício</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Carla Rodrigues</h3>
+                                <span class="review-date">28/02/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "Comprei o kit completo e fiquei impressionada! Cada peça tem um design único 
+                            e a qualidade é excepcional. O atendimento pós-venda também merece destaque."
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Kit Completo</span>
+                            <span class="review-tag">Design</span>
+                            <span class="review-tag">Pós-venda</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Lucas Ferreira</h3>
+                                <span class="review-date">25/02/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "A piteira de vidro é uma obra de arte! O design exclusivo chama atenção 
+                            e a durabilidade é impressionante. Já estou de olho em outros produtos."
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Exclusividade</span>
+                            <span class="review-tag">Durabilidade</span>
+                            <span class="review-tag">Arte</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Amanda Costa</h3>
+                                <span class="review-date">20/02/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "Presenteei um amigo com o dichavador e ele adorou! A qualidade do alumínio 
+                            é superior e o sistema de 4 partes funciona perfeitamente. Recomendo muito!"
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Presente</span>
+                            <span class="review-tag">Funcionalidade</span>
+                            <span class="review-tag">Qualidade</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Rafael Santos</h3>
+                                <span class="review-date">15/02/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "A embalagem é muito discreta e segura. Os produtos chegaram em perfeito estado 
+                            e o tempo de entrega foi menor que o previsto. Empresa séria e profissional!"
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Entrega</span>
+                            <span class="review-tag">Segurança</span>
+                            <span class="review-tag">Profissionalismo</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="src/img/globo 1[1].png" alt="Avatar" class="review-avatar">
+                            <div class="review-info">
+                                <h3 class="review-name">Beatriz Lima</h3>
+                                <span class="review-date">10/02/2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-rating">
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                            <i class="fa-solid fa-star star"></i>
+                        </div>
+                        
+                        <p class="review-text">
+                            "Achei a marca através do Instagram e me apaixonei pelo design. Depois que 
+                            recebi os produtos, vi que além de bonitos são super funcionais. Parabéns!"
+                        </p>
+                        
+                        <div class="review-tags">
+                            <span class="review-tag">Design</span>
+                            <span class="review-tag">Funcionalidade</span>
+                            <span class="review-tag">Instagram</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="faq">
+        <h2 class="section-title gradient-bg">FAQ</h2>
+        <h3 class="section-subtitle">Perguntas Frequentes</h3>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Como faço para realizar uma compra?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Para realizar uma compra, siga estes passos simples:</p>
+                    <ul>
+                        <li>Entre em contato pelo WhatsApp: <a href="https://wa.me/5511964393246" target="_blank" class="contact-link">+55 11 96439-3246</a> ou pelo Instagram: <a href="https://www.instagram.com/20.Pilla" target="_blank">@20.Pilla</a></li>
+                        <li>Escolha os produtos desejados em nossa loja</li>
+                        <li>Chame o vendedor pelo WhatsApp ou Instagram</li>
+                        <li>Preencha seus dados de entrega</li>
+                        <li>Escolha a forma de pagamento (PIX, cartão ou boleto)</li>
+                        <li>Confirme seu pedido</li>
+                    </ul>
+                    <p>Após a confirmação do pagamento, você receberá um e-mail com o código de rastreamento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Quais são as formas de pagamento aceitas?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Aceitamos diversas formas de pagamento para sua comodidade:</p>
+                    <ul>
+                        <li>PIX (5% de desconto e aprovação imediata)</li>
+                        <li>Cartões de crédito em até 12x (principais bandeiras)</li>
+                        <li>Cartão de débito</li>
+                        <li>Boleto bancário (aprovação em até 2 dias úteis)</li>
+                        <li>Transferência bancária</li>
+                    </ul>
+                    <p>Todas as transações são processadas com segurança através de gateways de pagamento confiáveis.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Como funciona a garantia dos produtos?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Nossa política de garantia é clara e transparente:</p>
+                    <ul>
+                        <li>Garantia de 90 dias para defeitos de fabricação</li>
+                        <li>7 dias para devolução por arrependimento</li>
+                        <li>Troca imediata em caso de produto com defeito</li>
+                    </ul>
+                    <p>Em caso de problemas, entre em contato com nosso suporte através do WhatsApp <a href="https://wa.me/5511964393246" target="_blank" class="contact-link">+55 11 96439-3246</a> ou e-mail <a href="mailto:20.pillamarca@gmail.com" class="contact-link">20.pillamarca@gmail.com</a> com fotos do produto e descrição do problema. Responderemos em até 24 horas úteis.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Como posso entrar em contato com o suporte?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Estamos disponíveis através de vários canais:</p>
+                    <ul>
+                        <li>WhatsApp: <a href="https://wa.me/5511964393246" target="_blank" class="contact-link">+55 11 96439-3246</a> (Segunda a Sábado, 9h às 18h)</li>
+                        <li>Instagram: <a href="https://www.instagram.com/20.Pilla" target="_blank">@20.Pilla</a> (mensagens diretas)</li>
+                        <li>E-mail: <a href="mailto:20.pillamarca@gmail.com" class="contact-link">20.pillamarca@gmail.com</a></li>
+                        <li>Formulário de contato em nosso site</li>
+                    </ul>
+                    <p>Nosso tempo médio de resposta é de até 2 horas em horário comercial.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Vocês têm loja física?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Atualmente trabalhamos apenas com e-commerce, o que nos permite:</p>
+                    <ul>
+                        <li>Oferecer preços mais competitivos</li>
+                        <li>Atender todo o território nacional</li>
+                        <li>Manter um estoque mais diversificado</li>
+                        <li>Investir em qualidade e atendimento personalizado</li>
+                    </ul>
+                    <p>Mas você pode retirar suas compras em nosso centro de distribuição em São Paulo, mediante agendamento prévio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="newsletter-container">
+            <div class="newsletter-content">
+                <h2>Fique por dentro das novidades!</h2>
+                <p>Cadastre-se para receber ofertas exclusivas e lançamentos em primeira mão.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
+                </form>
+
+                
+                <span class="newsletter-privacy">
+                    Ao se cadastrar, você concorda com nossa 
+                    <a href="politica-de-privacidade.html">Política de Privacidade</a>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <script src="src/javascript/newsletter.js"></script>
+    
+    <footer>
+        <img src="src/images/wave.svg" alt="">
+
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2025. 20Pilla - Todos os direitos reservados
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="https://wa.me/5511964393246">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="https://www.instagram.com/20.Pilla">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/people/20-Pilla/61575339840067/?mibextid=wwXIfr&rdid=f8p6YBYP8xCnY3vz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16EpugFpJx%2F%3Fmibextid%3DwwXIfr">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+
+            <div class="legal-links">
+                <a href="termos-de-uso.html">Termos de Uso</a>
+                <a href="politica-de-privacidade.html">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/javascript/script.js"></script>
+    <script src="src/javascript/faq.js"></script>
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Scripts -->
+    <script src="src/javascript/animations.js"></script>
+</body>
+</html>
